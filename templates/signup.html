@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!--Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap css-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<title>Registration Form</title>
+
+	<style>
+
+		html,
+		body {
+  			height: 100%;
+			}
+
+        .detailForm {
+  			width: 100%;
+  			max-width: 640px;
+  			padding: 15px;
+  			margin:auto;
+        	}
+
+        body{
+        	display: -ms-flexbox;
+  			display: flex;
+  			-ms-flex-align: center;
+  			align-items: center;
+        	padding-top: 20px;
+  			padding-bottom: 20px;
+  			background-color: #f5f5f5;
+        }
+
+	</style>
+
+</head>
+<body>
+	<form class="detailForm container" name="myForm" onsubmit="return validatForm()" method="POST">
+
+		<div align="center">
+			<img src="\static\google.png" height="60px" class="mb-2" alt="" >
+		</div>
+
+		<h2 class="h2 mb-3 font-weight-light" align="center">Sign up</h2>
+
+		<div class="form-group form-row">
+
+			<div class="form-group col-md-6">
+				<label for ="exampleInputFirstname">First name</label>
+			<input type="text" class="form-control" id="exampleInputFirstname" autocomplete="on" autofocus="" name = "firstname">			
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for ="exampleInputLastname">Last name</label>
+				<input type="text" class="form-control" id="exampleInputLastname" autocomplete="on" name = "lastname">			
+			</div>
+
+		</div>
+
+		<div class="form-group form-row">
+
+			<div class="form-group col-md-6">
+				<label for="exampleInputPhone">Phone number</label>
+				<input type="tels" class="form-control" id="exampleInputPhone" maxlength="10" autocomplete="on" onkeypress="return isNumberKey(event)" name="phone">	
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for="exampleDateOfBirth">Date of birth</label>
+				<input type="text" class="form-control" id="exampleInputDateOfBirth" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="DD-MM-YYYY" onkeydown="return false"  min="1899-01-01" max="2020-06-30" name = "dateofbirth">
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			<label for = "exampleInputEmail">Email address</label>
+			<input type="email" class="form-control" id="exampleInputEmail" aria-describedby = "emailHelp" placeholder="name@example.com" autocomplete="on" name = "email">
+			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		</div>
+
+		<div class = "form-group form-row">
+
+			<div class="form-group col-md-6">
+				<label for = "exampleInputPassword">Password</label>
+				<input type="password" class="form-control" id="exampleInputPassword" aria-describedby = "passwordHelp" onfocus="(this.type='text')" onblur="(this.type='password')" oncopy = "return false" onpaste = "return false" ondrop="return false" data-toggle="tooltip" data-placement="right" title="Your password must be 8-20 characters long containing alphabets, numbers and  these special characters only [@,$,_]." name="password">			
+				<!-- Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.-->
+
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for = "exampleInputConfirmPassword">Confirm Password</label>
+				<input type="Password" class="form-control" id="exampleInputConfirmPassword" onfocus="(this.type='text')" onblur="(this.type='password')" onpaste = "return false" oncopy ="return false" ondrop = "return false">
+			</div>
+
+		</div>
+
+		<div class="form-group">
+    			<label for="inputAddress">Address line 1</label>
+    			<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name = "address">
+  		</div>
+
+ 		  <div class="form-row">
+
+ 		 	<div class="form-group col-md-6">
+      				<label for="exampleInputState">State</label>
+      				<select id="exampleInputState" class="form-control" name="state">
+        				<option value=""></option>
+      				</select>
+    		</div>
+
+ 			
+    			<div class="form-group col-md-4">
+     				<label for="exampleInputCity">City</label>
+      				<select class="form-control" id="exampleInputCity" name="city">
+      					<option value=""></option>      					
+      				</select> 
+   		 	</div>
+
+    		<div class="form-group col-md-2">
+      			<label for="exampleInputPin">Pincode</label>
+      			<input type="text" class="form-control" id="exampleInputPin" name="pincode">
+    		</div>
+
+  		</div>
+
+		<div align="center">
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+
+			<button type="reset" class= "btn btn-primary ">Reset</button>
+			
+		</div>
+
+		
+	</form>
+
+	<!-- Optional javascript -->
+	<!-- jquery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="\static\registration_form.js"></script>    
+
+
+</body>
+</html>
