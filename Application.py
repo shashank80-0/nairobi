@@ -98,9 +98,25 @@ for item in userAttendance:
 '''
 
 
-@app.route('/')
-def start_login():
-    return render_template('login.html')
+@app.route('/login', methods=['POST','GET'])
+def login():
+    error = None
+    if request.method == 'GET':
+        return render_template('login.html')
+    elif request.method == 'POST':
+        employeeId = request.form['user']
+        password = request.form['pass']
+        user = staff.query.filter_by(emp_id = employeeId).first()
+        if(user is None):
+            error = """User does not exist!"""
+            return render_template('login.html', error = error)
+        elif(user.passwd != password):
+            error = """Incorrect password!"""
+            return render_template('login.html',error = error)
+        else:
+            return redirect(url_for('home', output = user.first_name))
+            
+        
 
 
 @app.route('/signup',methods = ['POST','GET'])
@@ -146,10 +162,16 @@ def signup():
                          designation_role_id = 'UN')
             db.session.add(user)
             db.session.commit()
-            return redirect(url_for('start_login')) 
+            return redirect(url_for('start_login'))
+
+@app.route('/home/<output>')
+def home(output):
+    return render_template('home.html',name = output)
 
 if __name__ == '__main__':
     app.run()
+
+
 
 
 
