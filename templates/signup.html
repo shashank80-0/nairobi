@@ -39,7 +39,7 @@
 
 </head>
 <body>
-	<form class="detailForm container" name="myForm" onsubmit="return validatForm()" method="POST">
+	<form class="detailForm container" name="myForm" onsubmit="return validatForm()" method="POST" action="">
 
 		<div align="center">
 			<img src="\static\google.png" height="60px" class="mb-2" alt="" >
@@ -90,12 +90,16 @@
 
 			</div>
 
+			
+
 			<div class="form-group col-md-6">
 				<label for = "exampleInputConfirmPassword">Confirm Password</label>
-				<input type="Password" class="form-control" id="exampleInputConfirmPassword" onfocus="(this.type='text')" onblur="(this.type='password')" onpaste = "return false" oncopy ="return false" ondrop = "return false">
+				<input type="Password" class="form-control" id="exampleInputConfirmPassword" onfocus="(this.type='text')" onblur="(this.type='password')" onpaste = "return false" oncopy ="return false" ondrop = "return false" name="confirmpassword">
 			</div>
 
 		</div>
+
+		<!--
 
 		<div class="form-group">
     			<label for="inputAddress">Address line 1</label>
@@ -126,6 +130,8 @@
 
   		</div>
 
+  	-->
+
 		<div align="center">
 
 			<button type="submit" class="btn btn-primary">Submit</button>
@@ -133,6 +139,17 @@
 			<button type="reset" class= "btn btn-primary ">Reset</button>
 			
 		</div>
+
+		<div align="center">
+			{% if error %}
+			<p><strong>Error: </strong>{{ error }}</p>
+			{% endif %}
+
+		</div>
+			
+
+
+		
 
 		
 	</form>

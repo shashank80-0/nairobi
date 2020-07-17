@@ -60,41 +60,23 @@
 
 	<form class="signInForm" name="sign-in" onsubmit="return validateForm()" action="" method="POST">
 			<img src="{{ url_for('static',filename='google.png') }}" height="60px" class="mb-2" alt="" >
-			<h2 class="h2 mb-3 font-weight-light" align="center">Sign in</h2>
+			<h2 class="h2 mb-3 font-weight-light" align="center">Reset Password</h2>
 			
 			<div class="form-group col-md-6 container">
-				<label for ="usernameInput" class="sr-only">Employee ID</label>
-				<input type="text" class="form-control" id="usernameInput" autocomplete="on" name = "user" autofocus="" placeholder="Employee ID">			
+				<label for ="emailInput" class="sr-only">Enter email address</label>
+				<input type="email" class="form-control" id="emailInput" autocomplete="on" name = "email" autofocus="" placeholder="Email address">			
 			</div>
 
-			<div class="form-group col-md-6 container">
-				<label for = "userPasswordInput" class="sr-only">Password</label>
-				<input type="Password" class="form-control" id="userPasswordInput" onfocus="(this.type='text')" onblur="(this.type='password')" onpaste = "return false" oncopy ="return false" ondrop = "return false" placeholder="Password" name="pass">
-			</div>
+			<button type="submit" class="btn btn-primary">Reset password</button>		
 
-			<div class="checkbox mb-3">
-    			<label>
-      			<input type="checkbox" value="remember-me"> Remember me
-    			</label>
-  			</div>
-
-			<button type="submit" class="btn btn-primary">Login</button>
-
-			<div style="margin-top: 5px"> 
-				<a href="/forget">Forgot ID/Password?</a>
-			</div>
-
-			<div style="margin-top: 5px"> 
-				<a href="/signup">Register new user</a>
-			</div>
 
 			<div align="center">
 			{% if error %}
-			<p><strong>Error: </strong>{{ error }}</p>
+			<p><strong></strong>{{ error }}</p>
 			{% endif %}
 
 		</div>
-			
+
 
 			
 	</form>
@@ -108,7 +90,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="\static\login.js"></script>    
+    <script type="text/javascript" src="\static\forget.js"></script>    
 
 
 </body>
