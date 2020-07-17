@@ -8,8 +8,8 @@ app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://root:12345@localhost:33
 app.config ['SQLALCHEMY_ECHO'] = False
 app.config ['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config ['MAIL_PORT'] = 465
-app.config ['MAIL_USERNAME'] = 'photosbackupshashank@gmail.com'
-app.config ['MAIL_PASSWORD'] = 'sa@90279808'
+app.config ['MAIL_USERNAME'] = '*********************'
+app.config ['MAIL_PASSWORD'] = '***************'
 app.config ['MAIL_USE_TLS'] = False
 app.config ['MAIL_USE_SSL'] = True
 
