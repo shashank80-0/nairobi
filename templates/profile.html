@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Bootstrap css-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+@media (max-width: 768px) {
+        .info{
+          font-size: 1.3rem;
+        }
+        .owner{
+        	font-size: 2rem;
+        }
+      }
+
+ @media (min-width: 768px) and (max-width: 992px) {
+        .info{
+          font-size: 0.7rem;
+        }
+        .owner{
+        	font-size: 1.4rem
+        }
+      }
+
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+        .info{
+          font-size: 1.0rem;
+        }
+        .owner{
+  		font-size: 2rem;
+  	}
+
+      }
+
+  @media (min-width: 1199.98px){
+  	.info{
+  		font-size: 1.3rem;
+  	}
+  	.owner{
+  		font-size: 2rem;
+  	}
+  }
+
+
+</style>
+<body class="bg-light container pt-5" style="max-width: 1400px;">
+
+<!-- Page Container -->
+
+<!--Navigation Bar -->
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light shadow">			
+			<a href="#" class="navbar-brand" style="font-size: 1.5em">
+			<img src="/static/nairobi_logo-1.png" width="50" height="50" class="inline-block align-center mr-2" alt="">
+			Nairobi</a>
+
+			<!-- This section is for responsive deisgn -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=#navbarCollapse aria-controls="navbarCollapse" aria-expanded="false" aria-label = "Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Resonsive navigation bar -->
+
+
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="#" class="nav-link">Home</a>
+					</li>
+					<li class="nav-item active">
+						<a href="#" class="nav-link">Profile</a>					
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">Contact</a>
+					</li>
+					</ul>
+					<a href="http://www.google.com" class="btn btn-success btn-sm nav-item">Sign out</a>
+			</div>
+		</nav>		
+	</header>
+<!-- Navigation Bar -->
+	
+	
+
+  <!-- The Grid -->
+  <div class="row container pt-3" >
+  
+    <!-- Left Column -->
+    <div class="px-3 bg-light col-md-5">
+    
+      <div class="text-secondary bg-light card shadow">
+
+        <div>
+          <img src= '{{ profile }}' width="100%" alt="profile" class="shadow">
+      	</div>
+
+      	<div class="container owner">
+            <p class="m-1 my-3">{{ name }}</p>
+        </div>    
+
+
+        <div class="container m-1">
+        	<!-- Personal info -->
+        	<div class="info">
+        		<p><i class="fa fa-briefcase fa-fw mr-3 text-success"></i>{{role}}</p>
+	          	<p><i class="fa fa-home fa-fw mr-3 text-warning"></i>{{address}}</p>
+	          	<p><i class="fa fa-envelope fa-fw mr-3 text-primary"></i>{{email}}</p>
+	          	<p><i class="fa fa-phone fa-fw mr-3 text-danger"></i>{{phone}}</p>
+	          	<hr>		
+        	</div>
+
+        	<!-- End Personal info -->
+
+        	<!-- Skills --> 
+        	<div>
+        		<p class="h5"><b><i class="fa fa-star fa-fw mr-3 text-danger"></i>Skills</b></p>
+        			<div>
+	          		<p class="mb-2 mt-2">Java</p>
+	          			<div class=" p-0 badge-pill" style="background-color: #E8E8E8">
+	            			<div class="  p-0 badge-pill bg-success"  style="width:90%">
+	              				<div class="text-center text-white">90%
+	              				</div>
+	            			</div>
+	          			</div>
+	          		</div>
+
+	          		<div>
+	          		<p class="mb-2 mt-2">HTML</p>
+	          			<div class=" p-0 badge-pill" style="background-color: #E8E8E8">
+	            			<div class="  p-0 badge-pill bg-warning"  style="width:80%">
+	              				<div class="text-center text-white">70%
+	              				</div>
+	            			</div>
+	          			</div>
+	          		</div>
+
+	          		<div>
+	          		<p class="mb-2 mt-2">Javascript</p>
+	          			<div class=" p-0 badge-pill" style="background-color: #E8E8E8">
+	            			<div class="  p-0 badge-pill bg-danger"  style="width:75%">
+	              				<div class="text-center text-white">55%
+	              				</div>
+	            			</div>
+	          			</div>
+	          		</div>
+
+	          		<div>
+	          		<p class="mb-2 mt-2">Python</p>
+	          			<div class=" p-0 badge-pill" style="background-color: #E8E8E8">
+	            			<div class="  p-0 badge-pill bg-success"  style="width:80%">
+	              				<div class="text-center text-white">80%
+	              				</div>
+	            			</div>
+	          			</div>
+	          		</div>
+	          	<hr>        		
+        	</div> 
+
+        	<!-- End Skills -->       
+        </div>
+        <br>
+      </div>
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+   
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+  <div class="d-flex justify-content-center">
+  	<footer class="bg-light mt-3">
+  		<p>Created by Shashank Agarwal</p>
+	</footer>  	
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
