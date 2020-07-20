@@ -8,8 +8,8 @@ app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://root:12345@localhost:33
 app.config ['SQLALCHEMY_ECHO'] = False
 app.config ['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config ['MAIL_PORT'] = 465
-app.config ['MAIL_USERNAME'] = '*********************'
-app.config ['MAIL_PASSWORD'] = '***************'
+app.config ['MAIL_USERNAME'] = 'photosbackupshashank@gmail.com'
+app.config ['MAIL_PASSWORD'] = 'sa@90279808'
 app.config ['MAIL_USE_TLS'] = False
 app.config ['MAIL_USE_SSL'] = True
 
@@ -66,7 +66,7 @@ class contact(db.Model):
     home_addr = db.Column(db.String,nullable=False)
     city_id = db.Column(db.Integer,db.ForeignKey(address.city_id),nullable=False)    
     contact_city_id = db.relationship('address', backref=db.backref('contact_city_id'), lazy=False,uselist=False)
-
+    profile_ref = db.Column(db.String(1000), nullable=True)
 
 db.create_all()
 
@@ -108,7 +108,7 @@ def login():
             error = """Incorrect password!"""
             return render_template('login.html',error = error)
         else:
-            return redirect(url_for('home', output = user.first_name))
+            return redirect(url_for('profile', employeeId=employeeId))
             
         
 
@@ -203,8 +203,24 @@ def reset():
             error = """Password has been successfully changed!"""
             return render_template('reset.html',error = error)
             
-            
-             
+@app.route('/profile/<employeeId>')
+def profile(employeeId):
+    user = employee.query.filter_by(emp_id = employeeId).first()
+    name = user.first_name + " " + user.last_name
+    email = user.email_addr
+    user_contact = contact.query.filter_by(emp_id = employeeId).first()
+    profile_ref = user_contact.profile_ref
+    phone = user_contact.phone_num
+    user_address = address.query.filter_by(city_id = user_contact.city_id).first()
+    addr = user_address.city_name + ", " + user_address.state_name
+    user_designation = designation.query.filter_by(emp_id = employeeId).all()
+    desig = ""
+    for roles in user_designation:
+        temp = role.query.filter_by(role_id=roles.role_id).first()
+        desig = desig + temp.role_name + ", "
+        print (desig)
+    desig = desig[0:len(desig)-2]
+    return render_template('profile.html', profile=profile_ref,name=name, role=desig, address=addr, email = email, phone=phone)
         
     
 
