@@ -90,7 +90,9 @@ for item in userAttendance:
 
 '''
 
-
+@app.route('/')
+def index():
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['POST','GET'])
 def login():
