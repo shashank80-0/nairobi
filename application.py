@@ -4,7 +4,8 @@ from datetime import datetime
 from flask_mail import Mail, Message
 app = Flask(__name__)
 
-app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://root:12345@localhost:3308/my_db')
+'''app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://root:12345@localhost:3308/my_db')'''
+app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://shashank_9634107:akonpass@db4free.net:3306/shashank_db')
 app.config ['SQLALCHEMY_ECHO'] = False
 app.config ['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config ['MAIL_PORT'] = 465
