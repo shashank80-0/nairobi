@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_mail import Mail, Message
 app = Flask(__name__)
 
-'''app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://root:12345@localhost:3308/my_db')'''
+
 app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://shashank_9634107:akonpass@db4free.net:3306/shashank_db')
 app.config ['SQLALCHEMY_ECHO'] = False
 app.config ['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -71,25 +71,6 @@ class contact(db.Model):
 
 db.create_all()
 
-'''
-
-user = employee.query.filter_by(first_name='Niharika').first()
-print(user.last_name)
-print(user.emp_id)
-userContact = contact.query.filter_by(emp_id=user.emp_id).first()
-print(userContact.city_id)
-print(userContact.home_addr)
-print(userContact.phone_num)
-userAtt = attribute.query.filter_by(emp_id = user.emp_id).all()
-for att in userAtt:
-    tech = technology.query.filter_by(skill_id = att.skill_id).first()
-    print(tech.skill_name)
-userAttendance = attendance.query.filter_by(emp_id = user.emp_id).all()
-for item in userAttendance:
-    print (item.on_date)
-    print (item.date_status)
-
-'''
 
 @app.route('/')
 def index():
@@ -99,7 +80,7 @@ def index():
 def login():
     error = None
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('profile.html')
     elif request.method == 'POST':
         employeeId = request.form['user']
         password = request.form['pass']
