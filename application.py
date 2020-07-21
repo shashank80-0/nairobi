@@ -80,7 +80,7 @@ def index():
 def login():
     error = None
     if request.method == 'GET':
-        return render_template('profile.html')
+        return render_template('login.html')
     elif request.method == 'POST':
         employeeId = request.form['user']
         password = request.form['pass']
