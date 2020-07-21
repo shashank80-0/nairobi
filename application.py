@@ -81,7 +81,7 @@ def login():
     error = None
     if request.method == 'GET':
         return render_template('login.html')
-    elif request.method == 'POST':
+    else:
         employeeId = request.form['user']
         password = request.form['pass']
         user = employee.query.filter_by(emp_id = employeeId).first()
