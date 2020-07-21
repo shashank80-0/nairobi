@@ -64,17 +64,17 @@
 			
 			<div class="form-group col-md-6 container">
 				<label for ="usernameInput" class="sr-only">Employee ID</label>
-				<input type="text" class="form-control" id="usernameInput" autocomplete="on" name = "user" autofocus="" placeholder="Employee ID">			
+				<input type="text" class="form-control" id="usernameInput" autocomplete="on" name = "user" autofocus="" placeholder="Employee ID" value='{{ user }}'>			
 			</div>
 
 			<div class="form-group col-md-6 container">
 				<label for = "userPasswordInput" class="sr-only">Password</label>
-				<input type="Password" class="form-control" id="userPasswordInput" onfocus="(this.type='text')" onblur="(this.type='password')" onpaste = "return false" oncopy ="return false" ondrop = "return false" placeholder="Password" name="pass">
+				<input type="Password" class="form-control" id="userPasswordInput" onfocus="(this.type='text')" onblur="(this.type='password')" onpaste = "return false" oncopy ="return false" ondrop = "return false" placeholder="Password" name="passwd" value="{{ passwd }}">
 			</div>
 
 			<div class="checkbox mb-3">
     			<label>
-      			<input type="checkbox" value="remember-me"> Remember me
+      			<input type="checkbox" value="remember-me" name="remember"> Remember me
     			</label>
   			</div>
 
