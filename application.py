@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://shashank_9634107:akonpass@db4free.net:3306/shashank_db')
 app.config ['SQLALCHEMY_ECHO'] = False
+app.config ['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config ['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config ['MAIL_PORT'] = 465
 app.config ['MAIL_USERNAME'] = 'photosbackupshashank@gmail.com'
@@ -81,7 +82,7 @@ def login():
     error = None
     if request.method == 'GET':
         return render_template('login.html')
-    else:
+    elif request.method == 'POST':
         employeeId = request.form['user']
         password = request.form['pass']
         user = employee.query.filter_by(emp_id = employeeId).first()
