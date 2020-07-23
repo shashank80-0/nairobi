@@ -5,7 +5,7 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 
 
-app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://shashank_9634107:akonpass@db4free.net:3306/shashank_db')
+app.config ['SQLALCHEMY_DATABASE_URI']='DATABASE_URL'
 app.config ['SQLALCHEMY_ECHO'] = False
 app.config ['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config ['MAIL_SERVER'] = 'smtp.gmail.com'
