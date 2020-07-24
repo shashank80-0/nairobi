@@ -209,8 +209,6 @@ def profile(employeeId):
 
 @app.route('/logout')
 def logout():
-    session.pop('userId',None)
-    session.pop('passwd',None)
     return redirect(url_for('login'))        
     
 
