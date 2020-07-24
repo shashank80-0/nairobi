@@ -4,7 +4,8 @@ from datetime import datetime
 from flask_mail import Mail, Message
 app = Flask(__name__)
 
-
+heroku config:add DATABASE_URL=mysql://shashank_9634107:akonpass@db4free.net:3306/shashank_db
+heroku config:add SHARED_DATABASE_URL=mysql://shashank_9634107:akonpass@db4free.net:3306/shashank_db
 app.config ['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://shashank_9634107:akonpass@db4free.net:3306/shashank_db')
 app.config ['SQLALCHEMY_ECHO'] = False
 app.config ['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
