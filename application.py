@@ -134,6 +134,14 @@ def signup():
                          )
             db.session.add(user)
             db.session.commit()
+            new_employee = employee.query.filter_by(email_addr = email).first()
+            new_empId = new_employee.emp_id
+            mail = Mail(app)
+            msg = Message('Employee ID', sender ='photosbackupshashank@gmail.com', recipients = [email])
+            msg.body = """"Welcome to NAIROBI. 
+                        Your Employee Id is """+ str(new_empId) + """ and your password is """ + str(password)
+            mail.send(msg)
+            error = """Your login credentials are sent to your Email Id!"""
             return redirect(url_for('login'))
 
 @app.route('/home/<output>')
@@ -154,11 +162,10 @@ def forget():
             error = """Email address is incorrect or does not exist!"""
             return render_template('forget.html', error=error)
         else:
+            reset_page = url_for('reset')
             mail = Mail(app)
-            msg = Message('Password reset', sender = 'photosbackup@gmail.com', recipients = [email])
-            msg.body = """Please follow this link to reset your password!
-                            http://localhost:5000/reset
-                            Thank you!"""
+            msg = Message('Password reset', sender = 'photosbackupshashank@gmail.com', recipients = [email])
+            msg.body = """Please follow this link to reset your password! """ + reset_page+ """Thank you!"""
             mail.send(msg)
             error = """Reset password link has been sent by email!"""
             return (render_template('forget.html', error = error))
