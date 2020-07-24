@@ -206,7 +206,12 @@ def profile(employeeId):
         print (desig)
     desig = desig[0:len(desig)-2]
     return render_template('profile.html', profile=profile_ref,name=name, role=desig, address=addr, email = email, phone=phone)
-        
+
+@app.route('/logout')
+def logout():
+    session.pop('userId',None)
+    session.pop('passwd',None)
+    return redirect(url_for('login'))        
     
 
 if __name__ == '__main__':
