@@ -84,7 +84,7 @@ def login():
         return render_template('login.html')
     elif request.method == 'POST':
         employeeId = request.form['user']
-        password = request.form['pass']
+        password = request.form['passwd']
         user = employee.query.filter_by(emp_id = employeeId).first()
         if(user is None):
             error = """User does not exist!"""
